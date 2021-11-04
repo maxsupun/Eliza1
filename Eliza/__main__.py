@@ -75,8 +75,10 @@ buttons = [
     [
         InlineKeyboardButton(text="INFO", callback_data="aboutmanu_"),
     ],
-    [    InlineKeyboardButton(text="Updates", callback_data="help_back"),
+    [    InlineKeyboardButton(text="Updates",url="https://t.me/ElizaBotUpdates"),
     ],
+     [    InlineKeyboardButton(text="Support", url="https://t.me/ElizaSUPPORT_OFFICIAL"),
+     ],
     [
         InlineKeyboardButton(
             text="Add Eliza to your group", url="t.me/TheElizaBot?startgroup=true"
