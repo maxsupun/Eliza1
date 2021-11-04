@@ -1,6 +1,7 @@
 {
-      "name": "Eliza X",
+      "name": "Eliza",
       "description": "An Anime themed Telegram group management bot.",
+       "logo": "https://telegra.ph/file/5d16993833e5b25957c61.jpg",
       "keywords": [
          "telegram",
          "anime",
@@ -8,7 +9,7 @@
          "manager",
          "Eliza"
       ],   
-   "repository": "https://github.com/Inukaasith/Eliza-x",
+   "repository": "https://github.com/maxsupun/Eliza",
    "addons": [
       {
          "options": {
