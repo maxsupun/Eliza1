@@ -62,7 +62,8 @@ from Eliza.modules.helper_funcs.chat_status import is_user_admin
 from Eliza.modules.helper_funcs.misc import paginate_modules
 from Eliza.modules.helper_funcs.readable_time import get_readable_time
 
-PM_START_TEXT = """
+PM_START_TEXT =
+"""
 Hello I'm Eliza
 
 I can help manage your groups with useful features, feel free to add me to your groups!
