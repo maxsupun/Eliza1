@@ -33,7 +33,7 @@ pyrogram>=1.0.7
 tgCrypto>=1.2.2
 fontTools
 gtts
-python3
+pytho3.3.3.7,
 tswift
 pytz
 youtube_dl
