@@ -8,7 +8,7 @@ import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
-from Eliza.modules.helper_funcs.handlers import (
+from Eliza .modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
