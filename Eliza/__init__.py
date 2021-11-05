@@ -2,19 +2,13 @@ import logging
 import os
 import sys
 import time
-
 import spamwatch
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
-from Eliza .modules.helper_funcs.handlers import (
-    CustomCommandHandler,
-    CustomMessageHandler,
-    CustomRegexHandler,
-)
-
 StartTime = time.time()
+CMD_HELP = {}
 
 # enable logging
 logging.basicConfig(
@@ -65,6 +59,9 @@ if ENV:
         TIGERS = set(int(x) for x in os.environ.get("TIGERS", "").split())
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
+
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "none")   
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", "none")
 
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
