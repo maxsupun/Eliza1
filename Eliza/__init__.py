@@ -2,13 +2,13 @@ import logging
 import os
 import sys
 import time
+
 import spamwatch
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
 StartTime = time.time()
-CMD_HELP = {}
 
 # enable logging
 logging.basicConfig(
@@ -60,9 +60,6 @@ if ENV:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
-    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "none")   
-    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", "none")  
-   
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
@@ -71,7 +68,7 @@ if ENV:
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
-    DB_URI = os.environ.get("DATABASE_URL")
+    DB_URI = os.environ.get("DB_URI")
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
@@ -88,20 +85,13 @@ if ENV:
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
-    VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
-    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     REPOSITORY = os.environ.get("REPOSITORY", "")
     REDIS_URL = os.environ.get("REDIS_URL")
     IBM_WATSON_CRED_URL = os.environ.get("IBM_WATSON_CRED_URL", None)
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
-    REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
-    log = os.environ.get("log", "-1001589738293")
-    OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
-    BOT_ID = os.environ.get("BOT_ID", None)  
-    SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", "@SpamWatchSupport")
     bot_start_time = time.time()
-    
+
     try:
         WHITELIST_CHATS = set(
             int(x) for x in os.environ.get("WHITELIST_CHATS", "").split()
@@ -115,7 +105,7 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from DewmiBot.config import Development as Config
+    from Maxrobot.config import Development as Config
 
     TOKEN = Config.TOKEN
 
@@ -157,7 +147,6 @@ else:
     API_HASH = Config.API_HASH
 
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
-    MONGO_DB_URI = Config.MONGO_DB_URI
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
     NO_LOAD = Config.NO_LOAD
@@ -193,7 +182,7 @@ else:
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
-pbot = Client("DewmiBot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("Maxrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 
@@ -204,7 +193,7 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 # Load at end to ensure all prev variables have been set
-from DewmiBot.modules.helper_funcs.handlers import (
+from Maxrobot.modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
