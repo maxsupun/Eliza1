@@ -196,8 +196,7 @@ else:
 
 
 print("[Eliza]: Initializing AIOHTTP Session")
-aiohttpsession = ClientSession()    
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)       
+aiohttpsession = ClientSession()       
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("Eliza", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
