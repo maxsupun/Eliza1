@@ -7,6 +7,8 @@ import spamwatch
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from aiohttp import ClientSession
+from Python_ARQ import ARQ
 
 StartTime = time.time()
 
@@ -60,11 +62,15 @@ if ENV:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY")   
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")  
+   
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     URL = os.environ.get("URL", "")  # Does not contain token
     PORT = int(os.environ.get("PORT", 5000))
+    BOT_ID = int(os.environ.get("BOT_ID", None))
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
@@ -91,6 +97,19 @@ if ENV:
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     bot_start_time = time.time()
+    tbot = TelegramClient(None, API_ID, API_HASH)
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    CMD_HELP = os.environ.get("CMD_HELP", None)
+    OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/Sadew451/NK")
+    ARQ_API_URL = os.environ.get("ARQ_API_URL", None)
+    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
+    app = Client("Nathsuki", api_id=API_ID, api_hash=API_HASH)    
+    LOG_GROUP_ID = os.environ.get("LOG_GROUP_ID", None) 
+    VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
+    WHITELIST_USERS = os.environ.get("WHITELIST_USERS", None)
+    SUDO_USERS = os.environ.get("SUDO_USERS", None)
 
     try:
         WHITELIST_CHATS = set(
@@ -180,6 +199,9 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 
+print("[Eliza]: Initializing AIOHTTP Session")
+aiohttpsession = ClientSession()    
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)       
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("Eliza", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
@@ -193,7 +215,7 @@ DEMONS = list(DEMONS)
 TIGERS = list(TIGERS)
 
 # Load at end to ensure all prev variables have been set
-from Eliza.modules.helper_funcs.handlers import (
+from Nathsuki.modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
