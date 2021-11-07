@@ -2,11 +2,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from Eliza import DB_URI
+from Eliza import SQLALCHEMY_DATABASE_URI
 
 
 def start() -> scoped_session:
-    engine = create_engine(DB_URI, client_encoding="utf8")
+    engine = create_engine(SQLALCHEMY_DATABASE_URI, client_encoding="utf8")
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
     return scoped_session(sessionmaker(bind=engine, autoflush=False))
