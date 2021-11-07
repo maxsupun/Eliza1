@@ -1,3 +1,7 @@
+#fuck off!
+#It will return 200 if Successfully Got User in Force Sub Channel and 400 if Found that User Not Participant in Force Sub Channel or User is Kicked from Force Sub Channel it will return 400. Also it returns 200 if Unable to Find Channel.
+#Re-use commands.py for more information!!!!!!!!!!!!!!!!!!!!!!
+
 import asyncio
 from config import UPDATES_CHANNEL
 from pyrogram import Client
