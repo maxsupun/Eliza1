@@ -69,7 +69,6 @@ if ENV:
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     URL = os.environ.get("URL", "")  # Does not contain token
     PORT = int(os.environ.get("PORT", 5000))
-    BOT_ID = int(os.environ.get("BOT_ID", None))
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
@@ -102,8 +101,6 @@ if ENV:
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/Sadew451/NK")
-    ARQ_API_URL = os.environ.get("ARQ_API_URL", None)
-    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
     app = Client("Nathsuki", api_id=API_ID, api_hash=API_HASH)    
     LOG_GROUP_ID = os.environ.get("LOG_GROUP_ID", None) 
     VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
