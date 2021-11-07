@@ -195,8 +195,7 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 
-print("[Eliza]: Initializing AIOHTTP Session")
-aiohttpsession = ClientSession()       
+print("[Eliza]: Initializing AIOHTTP Session")  
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("Eliza", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
